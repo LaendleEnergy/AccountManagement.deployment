@@ -46,6 +46,6 @@ services:
 
 networks:
   front-tier:
-    name: front-tier
+    name: accountmanagement-front-tier
   back-tier:
-    name: back-tier
+    name: accountmanagement-back-tier
