@@ -13,6 +13,7 @@ services:
     networks:
       - front-tier
       - back-tier
+      - redis
     depends_on:
       accountmanagement-database:
         condition: service_healthy
@@ -23,7 +24,7 @@ services:
       - QUARKUS_DATASOURCE_USERNAME=quarkus
       - QUARKUS_DATASOURCE_PASSWORD=quarkus
       - QUARKUS_HTTP_PORT=9000
-      - QUARKUS_REDIS_HOST=redis://127.0.0.1:6379
+      - QUARKUS_REDIS_HOST=redis://redis:6379
   accountmanagement-database:
     container_name: accountmanagement-database
     image: postgres:14-alpine
@@ -49,3 +50,6 @@ networks:
     name: accountmanagement-front-tier
   back-tier:
     name: accountmanagement-back-tier
+  redis:
+    name: redis
+    external: true    
