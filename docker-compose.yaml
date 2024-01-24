@@ -26,6 +26,8 @@ services:
       - QUARKUS_HTTP_PORT=9000
       - QUARKUS_REDIS_HOST=redis://redis:6379
       - QUARKUS_HTTP_CORS_ORIGINS=*
+      - QUARKUS_HTTP_ROOT__PATH=/account
+      - QUARKUS_RESTEASY_PATH=/account
   accountmanagement-database:
     container_name: accountmanagement-database
     image: postgres:14-alpine
